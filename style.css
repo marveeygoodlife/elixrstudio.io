@@ -1,4 +1,4 @@
-/* --- 1. RESET & BASE STYLES --- */
+/* RESET & BASE STYLES */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,34 +7,72 @@
 
 :root {
     /* Light Mode Variables */
-    --color-primary: #007bff;
+    --color-primary: #007bff; /* Accent Blue */
     --color-text: #333;
-    --color-background-body: #f9f9f9;
-    --color-background-hero: #e6f7ff;
+    --color-background-body: linear-gradient(135deg, #f9f9f9 0%, #eef0f3 100%); /* Subtle Body Gradient */
+    --color-background-hero: linear-gradient(135deg, #e6f7ff 0%, #cceeff 100%); /* Subtle Hero Gradient */
     --color-background-card: white;
     --color-heading: #1a1a1a;
     --color-shadow: rgba(0,0,0,0.1);
 }
 
-/* --- Dark Mode Configuration --- */
+/* --- Dark Mode Configuration  */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-primary: #8ab4f8; /* Lighter primary for contrast */
+        --color-primary: #8ab4f8; 
         --color-text: #e0e0e0;
-        --color-background-body: #121212; /* Dark background */
-        --color-background-hero: #1f1f1f;
+        --color-background-body: linear-gradient(135deg, #121212 0%, #1f1f1f 100%); /* Subtle Dark Body Gradient */
+        --color-background-hero: linear-gradient(135deg, #1f1f1f 0%, #2c2c2c 100%); /* Subtle Dark Hero Gradient */
         --color-background-card: #2c2c2c;
         --color-heading: #ffffff;
         --color-shadow: rgba(255,255,255,0.1);
     }
 }
 
-/* --- APPLYING VARIABLES TO BODY & BASE --- */
+/* --- font face */
+@font-face {
+    font-family: 'Anton-Regular';
+    src: url('font/Anton-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BebasNeue-Regular';
+    src: url('font/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('font/MontserratAlternates-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('font/MontserratAlternates-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RussoOne-Regular';
+    src: url('font/RussoOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TitanOne-Regular';
+    src: url('font/TitanOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*  APPLYING VARIABLES TO BODY & BASE  */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Montserrat-Regular", "Montserrat-Light", sans-serif;
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-background-body);
+    background: var(--color-background-body);
 }
 .container {
     max-width: 1100px;
@@ -49,30 +87,69 @@ h1, h2, h3 {
     margin-bottom: 20px;
     line-height: 1.2;
     color: var(--color-heading);
+    font-weight: 700;
 }
-h1 { font-size: 2.2rem; }
+
+#h1 { font-size: 2.2rem; font-family: "BebasNeue-Regular", "Anton-Regular", sans-serif; }
 h2 { font-size: 1.8rem; }
 p { margin-bottom: 15px; }
 
 
-/* --- 2. HERO SECTION --- */
-.hero {
-    background-color: var(--color-background-hero); 
-    padding: 80px 0;
+/*  HEADER & NAVIGATION STYLES */
+.header-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px 15px 30px 15px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
-.hero h1 {
-    font-size: 2.5rem;
+.logo {
+    font-size: 1.5rem;
     font-weight: 700;
+    color: var(--color-heading);
+    text-decoration: none;
+    letter-spacing: -0.10px;
+    font-family: "BebasNeue-Regular", "Anton-Regular", sans-serif;
 }
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+/* Hide Navigation on mobile for a simple one-pager (Desktop only) */
+@media (max-width: 767px) {
+    .nav-links {
+        display: none;
+    }
+    .header-nav {
+        justify-content: center; /* Center the logo */
+    }
+}
+
+/*  HERO SECTION  */
+.hero {
+    background: var(--color-background-hero); /* Using Gradient variable */
+    padding: 40px 0 80px; /* Reduced top padding due to added nav */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+ 
 .subhead {
     font-size: 1.1rem;
     color: var(--color-text);
     max-width: 600px;
     margin: 20px auto 30px;
-    opacity: 0.85; /* Slight opacity for secondary text */
+    opacity: 0.85;
 }
 
-/* --- 3. CTA BUTTONS --- */
+/* CTA BUTTONS  */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -80,11 +157,13 @@ p { margin-bottom: 15px; }
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     border: none;
     cursor: pointer;
 }
-/* Primary CTA: High-contrast WhatsApp Green */
+.btn:active {
+    transform: scale(0.98);
+}
 .btn-primary {
     background-color: #25D366; 
     color: white;
@@ -92,7 +171,6 @@ p { margin-bottom: 15px; }
 .btn-primary:hover {
     background-color: #128C7E; 
 }
-/* Secondary CTA: Use primary theme color */
 .btn-secondary {
     background-color: var(--color-primary); 
     color: white;
@@ -105,7 +183,19 @@ p { margin-bottom: 15px; }
     font-size: 1.1rem;
 }
 
-/* --- 4. SERVICES GRID --- */
+/*  SERVICES GRID  */
+ 
+.not-visible {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* Class added by JS when element is visible */
+.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
 .service-grid {
     display: grid;
     gap: 30px;
@@ -118,32 +208,46 @@ p { margin-bottom: 15px; }
     border-radius: 8px;
     box-shadow: 0 4px 6px var(--color-shadow);
     text-align: left;
+    transition: transform 0.3s ease-in-out;
+ }
+.service-card:hover {
+    transform: translateY(-10px); /* Subtle lift on hover */
 }
 .service-card h3 {
     color: var(--color-primary); 
 }
 
-/* --- 5. FLOATING WHATSAPP BUTTON (CRUCIAL) --- */
+/*  FLOATING WHATSAPP BUTTON */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #25D366;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50px;
+    text-align: center;
+      border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 4px 8px rgba(0,0,0,0.25);
     z-index: 1000;
-    opacity: 0; /* Starts hidden for JS fade-in */
+    opacity: 0;
     transition: opacity 0.5s;
 }
-
-/* --- 6. SCROLL TO TOP BUTTON (New Component) --- */
+.WHATSAPP {
+    font-size: 2.5rem;
+    color: white;
+    background-color: #128C7E; 
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+.WHATSAPP:hover {
+    background-color: #25D366; 
+    color: white;
+}
+/*  SCROLL TO TOP BUTTON */
 #scroll-to-top {
     position: fixed;
-    bottom: 80px; /* Positioned above the WhatsApp float */
+    bottom: 80px; 
     right: 20px;
     width: 40px;
     height: 40px;
@@ -152,7 +256,7 @@ p { margin-bottom: 15px; }
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    display: none; /* Hidden by default (JS controls visibility) */
+    display: none; 
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
@@ -164,13 +268,53 @@ p { margin-bottom: 15px; }
     background-color: #0056b3;
 }
 
-/* --- 7. MEDIA QUERIES (Desktop Improvements) --- */
+/*  MEDIA QUERIES (Desktop Improvements) --- */
 @media (min-width: 768px) {
-    h1 { font-size: 3rem; }
+    #h1 { font-size: 4rem; }
     h2 { font-size: 2.2rem; }
-    .hero { padding: 100px 0; }
+    .hero { 
+        padding: 40px 0 100px; /* Adjust padding for desktop view */
+    }
     .service-grid {
         grid-template-columns: repeat(3, 1fr); 
         text-align: center;
     }
+}
+
+/*  FOOTER STYLE */
+footer {
+    text-align: center;
+    margin-top: 70px;
+    padding: 10px;
+}
+
+footer a {
+    color: var(--color-text);
+}
+
+.fa-brands {
+    color: var(--color-text);
+    margin-left: 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+.fa-brands:hover {
+    color: var(--color-primary);
+}
+.fa-brands:focus {
+    color: var(--color-primary);
+    outline: 1px solid var(--color-primary);
+}
+.social-link a {
+    text-decoration: none;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
