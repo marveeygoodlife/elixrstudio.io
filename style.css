@@ -1,0 +1,176 @@
+/* --- 1. RESET & BASE STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Light Mode Variables */
+    --color-primary: #007bff;
+    --color-text: #333;
+    --color-background-body: #f9f9f9;
+    --color-background-hero: #e6f7ff;
+    --color-background-card: white;
+    --color-heading: #1a1a1a;
+    --color-shadow: rgba(0,0,0,0.1);
+}
+
+/* --- Dark Mode Configuration --- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: #8ab4f8; /* Lighter primary for contrast */
+        --color-text: #e0e0e0;
+        --color-background-body: #121212; /* Dark background */
+        --color-background-hero: #1f1f1f;
+        --color-background-card: #2c2c2c;
+        --color-heading: #ffffff;
+        --color-shadow: rgba(255,255,255,0.1);
+    }
+}
+
+/* --- APPLYING VARIABLES TO BODY & BASE --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background-body);
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+h1, h2, h3 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--color-heading);
+}
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+p { margin-bottom: 15px; }
+
+
+/* --- 2. HERO SECTION --- */
+.hero {
+    background-color: var(--color-background-hero); 
+    padding: 80px 0;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.subhead {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    max-width: 600px;
+    margin: 20px auto 30px;
+    opacity: 0.85; /* Slight opacity for secondary text */
+}
+
+/* --- 3. CTA BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+/* Primary CTA: High-contrast WhatsApp Green */
+.btn-primary {
+    background-color: #25D366; 
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #128C7E; 
+}
+/* Secondary CTA: Use primary theme color */
+.btn-secondary {
+    background-color: var(--color-primary); 
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #0056b3; 
+}
+.wa-icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* --- 4. SERVICES GRID --- */
+.service-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+}
+.service-card {
+    background: var(--color-background-card);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--color-shadow);
+    text-align: left;
+}
+.service-card h3 {
+    color: var(--color-primary); 
+}
+
+/* --- 5. FLOATING WHATSAPP BUTTON (CRUCIAL) --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    z-index: 1000;
+    opacity: 0; /* Starts hidden for JS fade-in */
+    transition: opacity 0.5s;
+}
+
+/* --- 6. SCROLL TO TOP BUTTON (New Component) --- */
+#scroll-to-top {
+    position: fixed;
+    bottom: 80px; /* Positioned above the WhatsApp float */
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Hidden by default (JS controls visibility) */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px var(--color-shadow);
+    z-index: 999;
+    transition: background-color 0.3s;
+}
+#scroll-to-top:hover {
+    background-color: #0056b3;
+}
+
+/* --- 7. MEDIA QUERIES (Desktop Improvements) --- */
+@media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    .hero { padding: 100px 0; }
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr); 
+        text-align: center;
+    }
+}
