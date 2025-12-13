@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // toggle button
         const toggleBtn = document.querySelector("#toggleBtn");
-        const navUl = document.querySelector("#ul");
+        const navUl = document.querySelector("ul");
         toggleBtn.addEventListener("click", () => {
                 navUl.classList.toggle("show");
         }); 
