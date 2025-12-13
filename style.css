@@ -124,15 +124,49 @@ p { margin-bottom: 15px; }
 .nav-links a:hover {
     color: var(--color-primary);
 }
-/* Hide Navigation on mobile for a simple one-pager (Desktop only) */
-@media (max-width: 767px) {
-    .nav-links {
-        display: none;
-    }
-    .header-nav {
-        justify-content: center; /* Center the logo */
-    }
+li {
+    list-style-type: none; 
 }
+    
+#ul {
+    position: absolute;
+    top: 3rem;
+    width: 100vh;
+    height: 100vh;
+    padding: 10px;
+    left: -100;
+    background: #333;
+    transition: left .3s ease-in-out;
+}
+.show {
+    left: 0;
+}
+
+#toggleBtn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    background: transparent;
+    border:none;
+    padding:3px;
+    }
+    
+.bar {
+        height: 5px;
+        border-radius: 10px;
+        width: 100%;
+        }
+        
+/* Hide Navigation on mobile for a simple one-pager (Desktop only) */
+
+    .header-nav {
+        justify-content: space-between; /* Center the logo */
+    }
 
 /*  HERO SECTION  */
 .hero {
@@ -281,7 +315,24 @@ p { margin-bottom: 15px; }
         text-align: center;
     }
 }
+@media (min-width: 1024px) {
+    #toggleBtn {
+    display: none;
+    }
+    
+#ul {
+    position: unset;
+    top: unset;
+    width: unset;
+    height: unset;
+    padding: unset;
+    left: unset;
+    background: unset;
+    transition: unset;
+}
 
+    }
+    
 /*  FOOTER STYLE */
 footer {
     text-align: center;
