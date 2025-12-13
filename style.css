@@ -128,7 +128,7 @@ li {
     list-style-type: none; 
 }
     
-#ul {
+ul {
     position: absolute;
     top: 5rem;
     width: 100vw; 
@@ -139,7 +139,7 @@ li {
     transition: left .3s ease-in-out;
     z-index: 1100;
 }
-.show {
+ul.show {
     left: 0;
 }
 
@@ -161,7 +161,7 @@ li {
         height: 5px;
         border-radius: 10px;
         width: 100%;
-        background: white;
+        background: var(--color-text);
         }
         
 /* Hide Navigation on mobile for a simple one-pager (Desktop only) */
