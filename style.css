@@ -130,11 +130,11 @@ li {
     
 #ul {
     position: absolute;
-    top: 5rem;
-    width: 100vh;
+    top: 6rem;
+    width: 100vw;
     height: 100vh;
     padding: 10px;
-    left: -100;
+    left: 100;
     background: #ccc;
     transition: left .3s ease-in-out;
     z-index: 1100;
