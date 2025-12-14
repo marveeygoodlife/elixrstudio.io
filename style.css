@@ -7,28 +7,28 @@
 
 :root {
     /* Light Mode Variables */
-    --color-primary: #007bff; /* Accent Blue */
-    --color-text: #333;
-    --color-background-body: linear-gradient(135deg, #f9f9f9 0%, #eef0f3 100%); /* Subtle Body Gradient */
-    --color-background-hero: linear-gradient(135deg, #e6f7ff 0%, #cceeff 100%); /* Subtle Hero Gradient */
-    --color-background-card: white;
-    --color-heading: #1a1a1a;
+    --color-primary: #1b263b; /* Accent Blue */
+    --color-text: #0d1b2a;
+    --color-background-body: linear-gradient(to bottom, #778da9 0%, #415a77 50%, #1b263b 75%, #778da9 100%); 
+    --color-background-hero: linear-gradient(135deg,   #778da9 0%,  #415a77 100%); 
+    --color-background-card: #e0e1dd;
+    --color-heading: #e0e1dd;
     --color-shadow: rgba(0,0,0,0.1);
 }
 
 /* --- Dark Mode Configuration  */
-@media (prefers-color-scheme: dark) {
+/*  @media (prefers-color-scheme:dark  ) {
     :root {
         --color-primary: #8ab4f8; 
         --color-text: #e0e0e0;
-        --color-background-body: linear-gradient(135deg, #121212 0%, #1f1f1f 100%); /* Subtle Dark Body Gradient */
-        --color-background-hero: linear-gradient(135deg, #1f1f1f 0%, #2c2c2c 100%); /* Subtle Dark Hero Gradient */
+        --color-background-body: linear-gradient(135deg, #415a77 0%, #1b263b 50%, #0d1b2a 100%); 
+        --color-background-hero: linear-gradient(135deg, #1b263b 0%, #0d1b2a 100%);
         --color-background-card: #2c2c2c;
         --color-heading: #ffffff;
         --color-shadow: rgba(255,255,255,0.1);
     }
-}
-
+} 
+ */
 /* --- font face */
 @font-face {
     font-family: 'Anton-Regular';
@@ -108,21 +108,23 @@ p { margin-bottom: 15px; }
     font-size: 1.5rem;
     font-weight: 700;
     align-self: flex-start;
-    color: var(--color-heading);
+    color: var(--color-text);
     text-decoration: none;
     letter-spacing: -0.10px;
     font-family: "BebasNeue-Regular", "Anton-Regular", sans-serif;
 }
 .nav-links a {
-    color: var(--color-text);
+    color: var(--color-primary);
     text-decoration: none;
     margin-left: 20px;
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s;
+    font-weight: 700;
 }
+
 .nav-links a:hover {
-    color: var(--color-primary);
+    color: var(--color-text);
 }
 li {
     list-style-type: none; 
@@ -135,9 +137,9 @@ ul {
     height: 100vh;
     padding: 10px;
     left: -100%;
-    background: #ccc;
-    transition: left .3s ease-in-out;
+     transition: left .3s ease-in-out;
     z-index: 1100;
+    background: var(--color-background-hero);
 }
 ul.show {
     left: 0;
@@ -164,20 +166,19 @@ ul.show {
         background: var(--color-text);
         }
         
-/* Hide Navigation on mobile for a simple one-pager (Desktop only) */
 
     .header-nav {
-        justify-content: space-between; /* Center the logo */
+        justify-content: space-between;
     }
 
 /*  HERO SECTION  */
 .hero {
-    background: var(--color-background-hero); /* Using Gradient variable */
-    padding: 40px 0 80px; /* Reduced top padding due to added nav */
+    background: var(--color-background-hero); 
+    padding: 30px 0 80px; 
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
- 
+
 .subhead {
     font-size: 1.1rem;
     color: var(--color-text);
@@ -202,18 +203,21 @@ ul.show {
     transform: scale(0.98);
 }
 .btn-primary {
-    background-color: #25D366; 
+    background-color: var(--color-primary); 
+    transition: background-color .3s ease-in-out;
     color: white;
 }
 .btn-primary:hover {
-    background-color: #128C7E; 
-}
+    background-color: #0d1b2a;
+;}
+
 .btn-secondary {
+    transition: background-color .3s ease-in-out;
     background-color: var(--color-primary); 
     color: white;
 }
 .btn-secondary:hover {
-    background-color: #0056b3; 
+    background-color: #0d1b2a;
 }
 .wa-icon {
     margin-right: 8px;
@@ -227,7 +231,7 @@ ul.show {
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-/* Class added by JS when element is visible */
+
 .is-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -248,7 +252,7 @@ ul.show {
     transition: transform 0.3s ease-in-out;
  }
 .service-card:hover {
-    transform: translateY(-10px); /* Subtle lift on hover */
+    transform: translateY(-10px);
 }
 .service-card h3 {
     color: var(--color-primary); 
@@ -302,15 +306,16 @@ ul.show {
     transition: background-color 0.3s;
 }
 #scroll-to-top:hover {
-    background-color: #0056b3;
+    background-color: #0d1b2a;
 }
 
-/*  MEDIA QUERIES (Desktop Improvements) --- */
+/*  MEDIA QUERIES  */
 @media (min-width: 768px) {
     #h1 { font-size: 4rem; }
     h2 { font-size: 2.2rem; }
+
     .hero { 
-        padding: 40px 0 100px; /* Adjust padding for desktop view */
+        padding: 20px 0 100px;
     }
     .service-grid {
         grid-template-columns: repeat(3, 1fr); 
@@ -331,6 +336,7 @@ ul.show {
     left: unset;
     background: unset;
     transition: unset;
+    display: flex;
 }
 
     }
