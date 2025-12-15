@@ -9,7 +9,7 @@
     /* Light Mode Variables */
     --color-primary: #1b263b; /* Accent Blue */
     --color-text: #0d1b2a;
-    --color-background-body: linear-gradient(to bottom, #778da9 0%, #415a77 50%, #1b263b 75%, #778da9 100%); 
+    --color-background-body: linear-gradient(to bottom, #778da9 0%, #415a77 50%, #778da9 100%); 
     --color-background-hero: linear-gradient(135deg,   #778da9 0%,  #415a77 100%); 
     --color-background-card: #e0e1dd;
     --color-heading: #e0e1dd;
@@ -73,6 +73,7 @@ body {
     line-height: 1.6;
     color: var(--color-text);
     background: var(--color-background-body);
+    font-weight: bold;
 }
 .container {
     max-width: 1100px;
@@ -128,6 +129,7 @@ p { margin-bottom: 15px; }
 }
 li {
     list-style-type: none; 
+    margin: 1.5rem 0;
 }
     
 ul {
@@ -221,6 +223,7 @@ ul.show {
 }
 .wa-icon {
     margin-right: 8px;
+    color: white;
     font-size: 1.1rem;
 }
 
@@ -323,6 +326,8 @@ ul.show {
     }
 }
 @media (min-width: 1024px) {
+        li {margin: 0 0;}
+
     #toggleBtn {
     display: none;
     }

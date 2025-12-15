@@ -1,6 +1,7 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', () => {
+    
         const waButton = document.querySelector('.whatsapp-float');
         const scrollButton = document.getElementById('scroll-to-top');
         const h1Element = document.querySelector('.hero h1');
@@ -30,9 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --Intersection Observer Scroll Reveal
         
-        //  start observer when 10% of the element is visible
         const observerOptions = {
-            root: null, // relative to the viewport
+            root: null,
             rootMargin: '10px',
             threshold: 0.1 // 10% of the item is visible
         };
@@ -80,4 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtn.addEventListener("click", () => {
                 navUl.classList.toggle("show");
         }); 
+    
+        // close navlink
+    document.addEventListener("click", (e) => {
+        const openUl = navUl.classList.contains("show");
+        const clickedUl = navUl.contains(e.target);
+        const clickedToggle = toggleBtn.contains(e.target);
+    
+        if (openUl && !clickedUl && !clickedToggle) {
+            navUl.classList.remove('show')
+        }
+    });
+    
     });
