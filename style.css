@@ -7,12 +7,13 @@
 
 :root {
     /* Light Mode Variables */
-    --color-primary: #1b263b; /* Accent Blue */
+    --color-primary: white; /* Accent Blue */
     --color-text: #0d1b2a;
-    --color-background-body: linear-gradient(to bottom, #778da9 0%, #415a77 50%, #778da9 100%); 
+    --color-dark: #0d1b2a;
+    --color-background-body: #e0e1dd; 
     --color-background-hero: linear-gradient(135deg,   #778da9 0%,  #415a77 100%); 
-    --color-background-card: #e0e1dd;
-    --color-heading: #e0e1dd;
+    --color-background-card: #415a77;
+    --color-heading: #0d1b2a;
     --color-shadow: rgba(0,0,0,0.1);
 }
 
@@ -91,7 +92,9 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-#h1 { font-size: 2.2rem; font-family: "BebasNeue-Regular", "Anton-Regular", sans-serif; }
+#h1 { font-size: 2.2rem; font-family: "BebasNeue-Regular", "Anton-Regular", sans-serif;
+    color: var(--color-primary);
+ }
 h2 { font-size: 1.8rem; }
 p { margin-bottom: 15px; }
 
@@ -109,7 +112,7 @@ p { margin-bottom: 15px; }
     font-size: 1.5rem;
     font-weight: 700;
     align-self: flex-start;
-    color: var(--color-text);
+    color: var(--color-primary);
     text-decoration: none;
     letter-spacing: -0.10px;
     font-family: "BebasNeue-Regular", "Anton-Regular", sans-serif;
@@ -125,7 +128,7 @@ p { margin-bottom: 15px; }
 }
 
 .nav-links a:hover {
-    color: var(--color-text);
+    color: #0d1b2a;
 }
 li {
     list-style-type: none; 
@@ -138,7 +141,7 @@ ul {
     width: 100vw; 
     height: 100vh;
     padding: 10px;
-    left: -100%;
+    left: -150%;
      transition: left .3s ease-in-out;
     z-index: 1100;
     background: var(--color-background-hero);
@@ -159,19 +162,18 @@ ul.show {
     background: transparent;
     border:none;
     padding:3px;
-    }
+}
     
 .bar {
         height: 5px;
         border-radius: 10px;
         width: 100%;
-        background: var(--color-text);
-        }
-        
+        background: var(--color-primary);
+}
 
-    .header-nav {
-        justify-content: space-between;
-    }
+.header-nav {
+    justify-content: space-between;
+}
 
 /*  HERO SECTION  */
 .hero {
@@ -183,7 +185,7 @@ ul.show {
 
 .subhead {
     font-size: 1.1rem;
-    color: var(--color-text);
+    color: var(--color-primary);
     max-width: 600px;
     margin: 20px auto 30px;
     opacity: 0.85;
@@ -207,19 +209,20 @@ ul.show {
 .btn-primary {
     background-color: var(--color-primary); 
     transition: background-color .3s ease-in-out;
-    color: white;
+    color: var(--color-dark);
 }
 .btn-primary:hover {
     background-color: #0d1b2a;
-;}
+    color: var(--color-primary);}
 
 .btn-secondary {
     transition: background-color .3s ease-in-out;
-    background-color: var(--color-primary); 
-    color: white;
+    background-color: var(--color-background-card); 
+    color: var(--color-primary); 
+    transition: background-color .3s ease-in-out;
 }
 .btn-secondary:hover {
-    background-color: #0d1b2a;
+    background-color: var(--color-text);
 }
 .wa-icon {
     margin-right: 8px;
@@ -248,6 +251,7 @@ ul.show {
 }
 .service-card {
     background: var(--color-background-card);
+    color: var(--color-primary); 
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px var(--color-shadow);
@@ -267,7 +271,7 @@ ul.show {
     bottom: 20px;
     right: 20px;
     text-align: center;
-      border-radius: 50px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 4px 8px rgba(0,0,0,0.25);
@@ -277,7 +281,6 @@ ul.show {
 }
 .WHATSAPP {
     font-size: 2.5rem;
-    color: white;
     background-color: #128C7E; 
     padding: 15px;
     border-radius: 50%;
@@ -289,14 +292,14 @@ ul.show {
     color: white;
 }
 /*  SCROLL TO TOP BUTTON */
-#scroll-to-top {
+#scroll-to-top { 
     position: fixed;
     bottom: 80px; 
     right: 20px;
     width: 40px;
     height: 40px;
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-dark);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -308,8 +311,11 @@ ul.show {
     z-index: 999;
     transition: background-color 0.3s;
 }
+
 #scroll-to-top:hover {
     background-color: #0d1b2a;
+    color: white;
+    border: 1px solid white;
 }
 
 /*  MEDIA QUERIES  */
@@ -352,22 +358,22 @@ footer {
     margin-top: 70px;
     padding: 10px;
 }
-
+ 
 footer a {
     color: var(--color-text);
 }
 
-.fa-brands {
-    color: var(--color-text);
+.social {
+    color: var(--color-primary);
     margin-left: 15px;
     font-size: 1.2rem;
     transition: color 0.3s;
 }
-.fa-brands:hover {
-    color: var(--color-primary);
+.social:hover {
+    color: var(--color-dark);
 }
-.fa-brands:focus {
-    color: var(--color-primary);
+.social:focus {
+    color: var(--color-text);
     outline: 1px solid var(--color-primary);
 }
 .social-link a {

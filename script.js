@@ -88,8 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const clickedToggle = toggleBtn.contains(e.target);
     
         if (openUl && !clickedUl && !clickedToggle) {
-            navUl.classList.remove('show')
+            closeNav();
         }
     });
-    
-    });
+    function closeNav() {
+        navUl.classList.remove('show')
+    };
+
+
+    /* close nav on click of links */
+    const navLinks = document.querySelectorAll("ul li a");
+    navLinks.forEach((link) => {
+        link.addEventListener("click", closeNav);
+    })
+    })
